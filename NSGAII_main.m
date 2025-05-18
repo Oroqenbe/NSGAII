@@ -96,7 +96,7 @@ for delta = delta_set
         pareto_mask = (rank == 1);
 
         if sum(pareto_mask) == 0
-            fprintf('⚠️ δ=%d, μ=%d 无可行解，跳过输出。\n', delta, mu);
+            fprintf(' δ=%d, μ=%d 无可行解，跳过输出。\n', delta, mu);
             continue;
         end
 
@@ -123,7 +123,7 @@ for delta = delta_set
         end
         csv_filename = fullfile(folder, sprintf('results_delta%d_mu%d.csv', delta, mu));
         writetable(T, csv_filename);
-        fprintf('✅ 已导出 CSV：%s\n', csv_filename);
+        fprintf('已导出 CSV：%s\n', csv_filename);
 
         % === 地图输出 ===
         selected_idx = 1;
@@ -167,7 +167,7 @@ for delta = delta_set
         site_flags.Tag = solutionTags;
 
         writetable(site_flags, fullfile(folder, 'top3_solutions.xlsx'));
-        fprintf('✅ 已保存 Excel：%s\n', fullfile(folder, 'top3_solutions.xlsx'));
+        fprintf('已保存 Excel：%s\n', fullfile(folder, 'top3_solutions.xlsx'));
 
         % === 汇总添加 ===
         summary_all = [summary_all; {delta, mu, top_objectives(1,1), top_objectives(1,2), top_objectives(1,3)}];
@@ -179,7 +179,7 @@ writetable(summary_table, fullfile(base_output, 'summary_all.xlsx'));
 
 fprintf('📊 所有敏感性实验汇总已保存 summary_all.xlsx\n');
 
-disp('✅ 敏感性分析全部完成');
+disp('敏感性分析全部完成');
 %% ========== 函数部分 ==========
 function pop = generateInitialPopulation(pop_size, num_sites, min_sites, max_sites, delta_i)
     pop = zeros(pop_size, num_sites);
