@@ -177,7 +177,7 @@ end
 summary_table = cell2table(summary_all, 'VariableNames', {'delta', 'mu', 'BestCost', 'BestDist', 'BestRisk'});
 writetable(summary_table, fullfile(base_output, 'summary_all.xlsx'));
 
-fprintf('📊 所有敏感性实验汇总已保存 summary_all.xlsx\n');
+fprintf(' 所有敏感性实验汇总已保存 summary_all.xlsx\n');
 
 disp('敏感性分析全部完成');
 %% ========== 函数部分 ==========
